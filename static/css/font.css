@@ -1,0 +1,16 @@
+
+@font-face {
+    font-family: "cicons";
+    font-weight: 400;
+    font-style: normal;
+    src: url(chrome-extension://fhkhedgjlkcgdaldodbhmcldjglpabmf/assets/font/cicon_43e43c5.woff) format("woff"),
+    url(chrome-extension://fhkhedgjlkcgdaldodbhmcldjglpabmf/assets/font/cicon_ab43222.svg?#cicons) format("svg");
+}
+
+@font-face {
+    font-family: "cosmicIcon";
+    font-weight: 400;
+    font-style: normal;
+    src: url(chrome-extension://fhkhedgjlkcgdaldodbhmcldjglpabmf/assets/font/cicon_43e43c5.woff) format("woff"),
+    url(chrome-extension://fhkhedgjlkcgdaldodbhmcldjglpabmf/assets/font/cicon_ab43222.svg?#cicons) format("svg");
+}
