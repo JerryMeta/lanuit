@@ -119,7 +119,7 @@ $(document).ready(function() {
         nav: true,
         navText: [
             '<img src="assets/img/icon/long-arrow-right.png" class="fa fa-rotate-180" alt="Prev">',
-            '<img src="assets/img/icon/long-arrow-right.png" alt="Next">',
+            '<img src="assets/img/icon/long-arrow-right.png" style="margin-left: 8px;" alt="Next">',
         ],
         margin: 30,
         responsiveClass: true,
@@ -163,7 +163,7 @@ $(document).ready(function() {
         margin: 30,
         responsiveClass: true,
         navText: [
-            '<img src="assets/img/icon/long-arrow-right.png" class="fa fa-rotate-180" alt="Prev">',
+            '<img src="assets/img/icon/long-arrow-right.png" class="fa fa-rotate-180"  style="margin-right: 4px;" alt="Prev">',
             '<img src="assets/img/icon/long-arrow-right.png" alt="Next">',
         ],
         nav: true,

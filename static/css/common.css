@@ -2671,7 +2671,7 @@ a {
 
 /* Featured slider style */
 .featured-slider-area {
-    padding-left: calc((100% - 1650px) / 2 + 15px);
+    padding: 10px 95px 10px 95px;
     position: relative;
 }
 
@@ -2682,7 +2682,6 @@ a {
     width: 160px;
     height: calc(100% + 16px);
     content: '';
-    background-color: #1a2024;
 }
 
 .featured-slider {
