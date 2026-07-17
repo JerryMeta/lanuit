@@ -1,108 +1,96 @@
-
 <header class="header-area">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 head-col">
                 <div class="header-content">
                     <div class="header-left aos-init aos-animate" data-aos="fade-right">
-                        <div class="logo"><h2><a href="../index.html"><img
-                                alt="logo image" src="./static/logo.png"></a></h2></div>
+                        <div class="logo"><h2><a href="{{ROOT}}index.html"><img
+                                alt="logo image" src="{{ROOT}}static/img/logo.png"></a></h2></div>
                         <div class="main-menu">
                             <div class="menubar"><span class="menubars"><span></span></span></div>
                             <div class="mainmenu-list">
                                 <ul>
-                                    <li class=""><a
-                                            href="./index.html">Home</a></li>
-                                    <li>
-                                        <a href="blog-single-2.html">Tag<span
-                                                class="fa fa-angle-down ml-1"></span></a>
+                                    <li class="active"><a href="{{ROOT}}index.html">首页</a>
+                                    </li>
+                                    <li><a href="{{ROOT}}index.html">标签</a>
                                         <ul>
-                                            <li><a href="tag.html">Tag-1</a>
+                                            <li><a href="{{PAGE}}tag.html">标签-1</a>
                                             </li>
                                             <li>
-                                                <a href="tag-2.html">Tag-2</a>
+                                                <a href="{{PAGE}}tag-2.html">标签-2</a>
                                             </li>
                                             <li>
-                                                <a href="tag-with-bg-image.html">Tag-with-bg</a>
+                                                <a href="{{PAGE}}tag-with-bg-image.html">标签-背景图</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{ROOT}}index.html">作者</a>
+                                        <ul>
+                                            <li><a href="{{PAGE}}author.html">作者-1</a>
+                                            </li>
+                                            <li><a href="{{PAGE}}author-2.html">作者-2</a>
+                                            </li>
+                                            <li><a href="{{PAGE}}author-bg.html">作者-背景图</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{ROOT}}index.html">作品集</a>
+                                        <ul>
+                                            <li><a href="{{PAGE}}portfolio.html">作品集-1</a>
+                                            </li>
+                                            <li><a href="{{PAGE}}portfolio-2.html">作品集-2</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="blog-single-2.html">Author<span
-                                                class="fa fa-angle-down ml-1"></span></a>
-                                        <ul>
-                                            <li><a href="author.html">Author-1</a>
-                                            </li>
-                                            <li><a href="author-2.html">Author-2</a>
-                                            </li>
-                                            <li><a href="author-bg.html">Author-bg</a>
-                                            </li>
-                                        </ul>
+                                        <a href="{{PAGE}}style-guide.html">样式指南</a>
                                     </li>
-                                    <li><a href="blog-single-2.html">Portfolio<span
-                                            class="fa fa-angle-down ml-1"></span></a>
+                                    <li><a href="{{ROOT}}index.html">页面</a>
                                         <ul>
-                                            <li><a href="portfolio.html">Portfolio-1</a>
-                                            </li>
-                                            <li><a href="portfolio-2.html">Portfolio-2</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="style-guide.html">Styleguide</a>
-                                    </li>
-                                    <li class="active"><a
-                                            href="././pages/blog-single-2.html">Pages<span
-                                            class="fa fa-angle-down ml-1"></span></a>
-                                        <ul>
-                                            <li><a href="about-us.html">About
-                                                us</a></li>
-                                            <li class="active"><a
-                                                    href="././pages/blog-single-2.html">Single
-                                                pages</a>
+                                            <li><a href="{{PAGE}}about-us.html">关于我们</a></li>
+                                            <li><a href="{{ROOT}}index.html">单页</a>
                                                 <ul>
                                                     <li>
-                                                        <a href="tag-single.html">Tag-Single</a>
+                                                        <a href="{{PAGE}}tag-single.html">标签详情</a>
                                                     </li>
                                                     <li>
-                                                        <a href="tag-single-2.html">Tag-Single-2</a>
+                                                        <a href="{{PAGE}}tag-single-2.html">标签详情-2</a>
                                                     </li>
                                                     <li>
-                                                        <a href="tag-single-with-bg-image.html">Tag-Single-bg</a>
+                                                        <a href="{{PAGE}}tag-single-with-bg-image.html">标签详情-背景图</a>
                                                     </li>
                                                     <li>
-                                                        <a href="portfolio-single.html">Portfolio-Single</a>
+                                                        <a href="{{PAGE}}portfolio-single.html">作品详情</a>
                                                     </li>
                                                     <li>
-                                                        <a href="portfolio-single-2.html">Portfolio-Single-2</a>
+                                                        <a href="{{PAGE}}portfolio-single-2.html">作品详情-2</a>
                                                     </li>
                                                     <li>
-                                                        <a href="author-single.html">Author-Single</a>
+                                                        <a href="{{PAGE}}author-single.html">作者详情</a>
                                                     </li>
                                                     <li>
-                                                        <a href="author-single-bg.html">Author-Single-bg</a>
+                                                        <a href="{{PAGE}}author-single-bg.html">作者详情-背景图</a>
                                                     </li>
                                                     <li>
-                                                        <a href="blog-single.html">Blog-Single</a>
+                                                        <a href="{{PAGE}}blog-single.html">博客详情</a>
                                                     </li>
-                                                    <li class="active"><a
-                                                            href="././pages/blog-single-2.html">Blog-Single-2</a>
+                                                    <li>
+                                                        <a href="{{PAGE}}blog-single-2.html">博客详情-2</a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="search.html">Search</a>
+                                                <a href="{{PAGE}}search.html">搜索</a>
                                             </li>
                                             <li>
-                                                <a href="no-search-result-found.html">Search  no result</a></li>
+                                                <a href="{{PAGE}}no-search-result-found.html">搜索无结果</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="blog-single-2.html">Contact<span
-                                            class="fa fa-angle-down ml-1"></span></a>
+                                    <li><a href="{{ROOT}}index.html">联系我们</a>
                                         <ul>
-                                            <li><a href="contact.html">Contact</a>
+                                            <li><a href="{{PAGE}}contact.html">联系我们</a>
                                             </li>
-                                            <li><a href="contact-us-bg.html">Contact-us-with-bg</a>
+                                            <li><a href="{{PAGE}}contact-us-bg.html">联系我们-背景图</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -118,14 +106,14 @@
                                 class="fa fa-search"></i></span>
                             <div class="search-box"><span class="search-close-trigger"><img alt="close"
                                                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAVCAYAAABCIB6VAAABE0lEQVRIS6XVu5GDMBAGYP2KIHMJdx1cCXbIEFHBuQSXZFdABApxCdeB5zq4DCKtZ5kTg7Eea4sMofnY2YeEvu9PWuvvcRwPTdP8qYynbdtdWZaDtfaCruu+tNZXALcc3KFE9Gmt3YMDzMW3aF3XPzOcg/tQ9hb4HTyEPsGv4DHUC0vwFBqEY7gEjcI+nNe4T11LcfVDbf9QPN+mdSvydwmajNj9yBizV0oN/++HqqquqQFNRrzK6bwXAEkmNAqv0WmaOGpVFAWPfxIPwlvUHVC8LsG9cAh1eZXgT3AKleIPsBSV4AtsjPkA0BIRuFDSQz+UluU8BjAA+H0FjUU+3yA5aAgH33kAju9Eup0+lxYiOt8BXDFqtUpM3SEAAAAASUVORK5CYII="></span><input
-                                    id="search_result" placeholder="Type anything and hit enter" type="text">
+                                    id="search_result" placeholder="输入任意内容并按回车" type="text">
                                 <button class="search-icon" type="submit"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                         <ul>
-                            <li><a href="blog-single-2.html"><i
+                            <li><a href="{{ROOT}}index.html"><i
                                     class="fa fa-facebook"></i></a></li>
-                            <li><a href="blog-single-2.html"><i
+                            <li><a href="{{ROOT}}index.html"><i
                                     class="fa fa-twitter"></i></a></li>
                         </ul>
                     </div>
