@@ -9,6 +9,8 @@ const headerTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/header.html')
 const footerTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/footer.html'), 'utf8');
 const goTopTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/go-top.html'), 'utf8');
 const scriptsTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/scripts.html'), 'utf8');
+const blogContentTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/blog-content.html'), 'utf8');
+const blogCommentsTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/blog-comments.html'), 'utf8');
 
 function renderTemplate(template, tokens) {
     let rendered = template;
@@ -87,6 +89,24 @@ function replaceScripts(content, rendered) {
     return content.slice(0, start) + rendered + content.slice(end);
 }
 
+function replaceBlogContent(content, rendered) {
+    const start = content.indexOf('<div class="single-post-content">');
+    const end = content.indexOf('</div>', start);
+    if (start === -1 || end === -1) {
+        throw new Error('blog content block not found');
+    }
+    return content.slice(0, start) + rendered + content.slice(end + '</div>'.length);
+}
+
+function replaceBlogComments(content, rendered) {
+    const start = content.indexOf('<div class="comment-lists">');
+    const end = content.indexOf('<div class="comments-box', start);
+    if (start === -1 || end === -1) {
+        throw new Error('blog comments block not found');
+    }
+    return content.slice(0, start) + rendered + content.slice(end);
+}
+
 const targets = [
     'index.html',
     ...fs.readdirSync(path.join(ROOT_DIR, 'pages'))
@@ -108,6 +128,10 @@ for (const target of targets) {
     content = replaceGoTop(content, renderTemplate(goTopTemplate, tokens));
     content = replaceHeader(content, renderTemplate(headerTemplate, tokens));
     content = replaceFooter(content, renderTemplate(footerTemplate, tokens));
+    if (target === path.join('pages', 'blog-single.html') || target === path.join('pages', 'blog-single-2.html')) {
+        content = replaceBlogContent(content, renderTemplate(blogContentTemplate, tokens));
+        content = replaceBlogComments(content, renderTemplate(blogCommentsTemplate, tokens));
+    }
     content = replaceScripts(content, renderTemplate(scriptsTemplate, tokens));
     fs.writeFileSync(filePath, content);
     console.log(`built ${target}`);
