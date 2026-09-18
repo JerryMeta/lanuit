@@ -107,6 +107,33 @@ function replaceBlogComments(content, rendered) {
     return content.slice(0, start) + rendered + content.slice(end);
 }
 
+function translateTagDetail(content) {
+    const replacements = [
+        ['>Design</a>', '>设计</a>'],
+        ['>Culture</a>', '>文化</a>'],
+        ['>13 July, 2018</span>', '>2018年7月13日</span>'],
+        ['9 Post written by the author', '作者共发表了9篇文章'],
+        ['Descriptions than no a return office they sick', '这些描述并没有让办公室恢复原状，反而让人不适'],
+        ["Own, and scent had woman's do considerations", '拥有，以及那份气味，还有女人们要考虑的事'],
+        ['Instantly anyone hollow fly in that clean took needs', '瞬间，任何人都能空洞地飞进那份干净的需求之中'],
+        ['NEWER POSTS', '较新的文章'],
+        ['OLDER POSTS', '较旧的文章'],
+    ];
+    for (const [source, translated] of replacements) {
+        content = content.split(source).join(translated);
+    }
+    content = content.replace(/>Design<\/h2>/g, '>设计<\/h2>');
+    content = content.replace(/Could of client of so hologram identification get to\s+far he its from thing way\. A please left some gloomy still phase unmoved the annoyed\./g, '这是一段关于作者和文章内容的介绍，欢迎阅读并了解更多信息。');
+    content = content.replace(/Descriptions\s+than no a return office they sick/g, '这些描述并没有让办公室恢复原状，反而让人不适');
+    content = content.replace(/Own,\s*and scent had woman\'s do considerations/g, '拥有，以及那份气味，还有女人们要考虑的事');
+    content = content.replace(/Instantly\s+anyone hollow fly in that clean took needs/g, '瞬间，任何人都能空洞地飞进那份干净的需求之中');
+    return content;
+}
+
+function normalizeTagImagePaths(content) {
+    return content.split('assets/img/banner/').join('../static/img/tag-img/');
+}
+
 const targets = [
     'index.html',
     ...fs.readdirSync(path.join(ROOT_DIR, 'pages'))
@@ -131,6 +158,12 @@ for (const target of targets) {
     if (target === path.join('pages', 'blog-single.html') || target === path.join('pages', 'blog-single-2.html')) {
         content = replaceBlogContent(content, renderTemplate(blogContentTemplate, tokens));
         content = replaceBlogComments(content, renderTemplate(blogCommentsTemplate, tokens));
+    }
+    if (['tag-single.html', 'tag-single-2.html', 'tag-single-with-bg-image.html'].includes(path.basename(target))) {
+        content = translateTagDetail(content);
+    }
+    if (['tag-2.html', 'tag-with-bg-image.html'].includes(path.basename(target))) {
+        content = normalizeTagImagePaths(content);
     }
     content = replaceScripts(content, renderTemplate(scriptsTemplate, tokens));
     fs.writeFileSync(filePath, content);
