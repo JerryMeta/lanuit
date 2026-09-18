@@ -166,6 +166,7 @@ for (const target of targets) {
         content = normalizeTagImagePaths(content);
     }
     content = replaceScripts(content, renderTemplate(scriptsTemplate, tokens));
+    content = content.replace(/\n{3,}/g, '\n\n');
     fs.writeFileSync(filePath, content);
     console.log(`built ${target}`);
 }
