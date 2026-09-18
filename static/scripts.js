@@ -76,9 +76,11 @@ $(document).ready(function() {
     })
 
     /////////////////////////////// 4. Scroll to top ////////////////////////////
-    $('body').prepend(
-        '<div class="go-top"><span id="top"><i class="fa fa-long-arrow-up"></i></span></div>'
-    )
+    if (!$('.go-top').length) {
+        $('body').prepend(
+            '<div class="go-top"><span id="top"><i class="fa fa-long-arrow-up"></i></span></div>'
+        )
+    }
     $(window).scroll(function() {
         if ($(window).scrollTop() > 100) {
             $('.go-top').fadeIn()

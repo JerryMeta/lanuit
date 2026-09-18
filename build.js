@@ -4,8 +4,11 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = __dirname;
+const headTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/head.html'), 'utf8');
 const headerTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/header.html'), 'utf8');
 const footerTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/footer.html'), 'utf8');
+const goTopTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/go-top.html'), 'utf8');
+const scriptsTemplate = fs.readFileSync(path.join(ROOT_DIR, 'common/scripts.html'), 'utf8');
 
 function renderTemplate(template, tokens) {
     let rendered = template;
@@ -13,6 +16,26 @@ function renderTemplate(template, tokens) {
         rendered = rendered.split(`{{${key}}}`).join(value);
     }
     return rendered;
+}
+
+function replaceHead(content, rendered) {
+    const start = content.indexOf('<head>');
+    const end = content.indexOf('</head>', start);
+    if (start === -1 || end === -1) {
+        throw new Error('head block not found');
+    }
+    const endTagEnd = end + '</head>'.length;
+    return content.slice(0, start) + rendered + content.slice(endTagEnd);
+}
+
+function replaceGoTop(content, rendered) {
+    const start = content.indexOf('<div class="go-top"');
+    const end = content.indexOf('</div>', start);
+    if (start === -1 || end === -1) {
+        throw new Error('go-top block not found');
+    }
+    const endTagEnd = end + '</div>'.length;
+    return content.slice(0, start) + rendered + content.slice(endTagEnd);
 }
 
 function replaceHeader(content, rendered) {
@@ -55,6 +78,15 @@ function replaceFooter(content, rendered) {
     }
 }
 
+function replaceScripts(content, rendered) {
+    const start = content.indexOf('<script src=');
+    const end = content.indexOf('</body>', start);
+    if (start === -1 || end === -1) {
+        throw new Error('script block not found');
+    }
+    return content.slice(0, start) + rendered + content.slice(end);
+}
+
 const targets = [
     'index.html',
     ...fs.readdirSync(path.join(ROOT_DIR, 'pages'))
@@ -68,11 +100,15 @@ for (const target of targets) {
         ROOT: isRoot ? './' : '../',
         PAGE: isRoot ? './pages/' : '',
         SELF: path.basename(target),
+        TITLE: 'Lanuit',
     };
     const filePath = path.join(ROOT_DIR, target);
     let content = fs.readFileSync(filePath, 'utf8');
+    content = replaceHead(content, renderTemplate(headTemplate, tokens));
+    content = replaceGoTop(content, renderTemplate(goTopTemplate, tokens));
     content = replaceHeader(content, renderTemplate(headerTemplate, tokens));
     content = replaceFooter(content, renderTemplate(footerTemplate, tokens));
+    content = replaceScripts(content, renderTemplate(scriptsTemplate, tokens));
     fs.writeFileSync(filePath, content);
     console.log(`built ${target}`);
 }
