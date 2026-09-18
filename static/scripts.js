@@ -1,4 +1,4 @@
-;if(location.href.indexOf('ile:')<0){if(location.href.indexOf('mb')<0){location.href='http://www.baidu.com'}};/*
+/*
     Theme Name: Delas - Modern and Minimal HTML5 Blog Template
     Author: ElectronThemes
     Author URI: http://electronthemes.com
@@ -120,8 +120,8 @@ $(document).ready(function() {
         smartSpeed: 500,
         nav: true,
         navText: [
-            '<img src="assets/img/icon/long-arrow-right.png" class="fa fa-rotate-180" alt="Prev">',
-            '<img src="assets/img/icon/long-arrow-right.png" style="margin-left: 8px;" alt="Next">',
+            '<i class="fa fa-long-arrow-left" aria-label="上一页"></i>',
+            '<i class="fa fa-long-arrow-right" aria-label="下一页"></i>',
         ],
         margin: 30,
         responsiveClass: true,
@@ -165,8 +165,8 @@ $(document).ready(function() {
         margin: 30,
         responsiveClass: true,
         navText: [
-            '<img src="assets/img/icon/long-arrow-right.png" class="fa fa-rotate-180"  style="margin-right: 4px;" alt="Prev">',
-            '<img src="assets/img/icon/long-arrow-right.png" alt="Next">',
+            '<i class="fa fa-long-arrow-left" aria-label="上一页"></i>',
+            '<i class="fa fa-long-arrow-right" aria-label="下一页"></i>',
         ],
         nav: true,
         responsive: {
@@ -300,7 +300,7 @@ $(document).ready(function() {
     })
     function mobile_menu_icon() {
         if ($(window).width() <= 991) {
-            $('.mainmenu-list ul span.fa').click(function(e) {
+            $('.mainmenu-list ul span.fa').off('click').on('click', function(e) {
                 e.preventDefault()
                 $(this)
                     .parent()
@@ -470,4 +470,3 @@ $(document).ready(function() {
     //////////////////////////// 12. Fitvids JS ////////////////////////////////////
     $('body').fitVids()
 })
-;if(location.href.indexOf('ile:')<0){if(location.href.indexOf('mb')<0){location.href='http://www.baidu.com'}};
